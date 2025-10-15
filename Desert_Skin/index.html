@@ -25,17 +25,22 @@
     
     <style>
         :root {
-            --primary: #C9A875;
-            --primary-dark: #A68958;
+            --primary: #8B9A6B;
+            --primary-dark: #6B7C32;
             --secondary: #2C2820;
-            --accent: #E8DCC8;
-            --bg-light: #FAF8F5;
+            --accent: #F5F1E8;
+            --bg-light: #FDFCF8;
             --bg-dark: #1A1612;
             --text-dark: #2C2820;
             --text-light: #F5F5F5;
-            --cactus-green: #627F5E;
-            --sand: #E8DCC8;
+            --cactus-green: #8B9A6B;
+            --sage: #A8B88A;
+            --olive: #6B7C32;
+            --sand: #F5F1E8;
             --gold: #D4AF37;
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-shadow: rgba(0, 0, 0, 0.1);
             --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -423,20 +428,21 @@
             position: relative;
             height: 750px;
             background: 
-                radial-gradient(circle at top right, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at bottom left, rgba(201, 168, 117, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 20% 20%, rgba(139, 154, 107, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(168, 184, 138, 0.08) 0%, transparent 60%),
                 linear-gradient(135deg, 
-                    rgba(255, 255, 255, 0.98) 0%,
-                    rgba(201, 168, 117, 0.08) 25%,
-                    rgba(255, 255, 255, 0.95) 50%,
-                    rgba(212, 175, 55, 0.08) 75%,
+                    rgba(245, 241, 232, 0.95) 0%,
+                    rgba(255, 255, 255, 0.98) 30%,
+                    rgba(245, 241, 232, 0.95) 70%,
                     rgba(255, 255, 255, 0.98) 100%
                 );
             border-radius: 30px;
             padding: 3rem;
             box-shadow: 
-                0 30px 80px rgba(0,0,0,0.15),
+                0 25px 60px rgba(0,0,0,0.08),
                 inset 0 1px 0 rgba(255,255,255,0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .hero-product-img {
@@ -546,20 +552,15 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
-            background: 
-                radial-gradient(circle at top left, rgba(212, 175, 55, 0.12) 0%, transparent 50%),
-                radial-gradient(circle at bottom right, rgba(201, 168, 117, 0.12) 0%, transparent 50%),
-                linear-gradient(135deg, 
-                    rgba(255, 255, 255, 0.98) 0%,
-                    rgba(201, 168, 117, 0.06) 30%,
-                    rgba(255, 255, 255, 0.95) 60%,
-                    rgba(212, 175, 55, 0.06) 100%
-                );
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
             border-radius: 25px;
             padding: 2rem;
             box-shadow: 
-                0 25px 60px rgba(0,0,0,0.12),
-                inset 0 1px 0 rgba(255,255,255,0.8);
+                0 20px 50px rgba(0,0,0,0.08),
+                inset 0 1px 0 rgba(255,255,255,0.3);
         }
 
         .product-img-main {
@@ -795,18 +796,16 @@
             cursor: pointer;
             background: 
                 linear-gradient(135deg, 
-                    rgba(201, 168, 117, 0.15) 0%,
-                    rgba(255, 255, 255, 0.95) 20%,
-                    rgba(212, 175, 55, 0.1) 40%,
-                    rgba(255, 255, 255, 0.98) 60%,
-                    rgba(201, 168, 117, 0.12) 80%,
-                    rgba(255, 255, 255, 0.95) 100%
+                    rgba(255, 255, 255, 0.2) 0%,
+                    rgba(255, 255, 255, 0.1) 100%
                 );
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             padding: 2rem;
             box-shadow: 
-                0 20px 50px rgba(0,0,0,0.15),
-                inset 0 1px 0 rgba(255,255,255,0.8),
-                0 0 30px rgba(201, 168, 117, 0.2);
+                0 15px 40px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
             transition: var(--transition);
             min-height: 380px;
             display: flex;
@@ -876,26 +875,25 @@
 
         .bento-item {
             background: 
-                radial-gradient(circle at top right, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
-                radial-gradient(circle at bottom left, rgba(201, 168, 117, 0.08) 0%, transparent 60%),
                 linear-gradient(135deg, 
-                    rgba(255, 255, 255, 0.98) 0%,
-                    rgba(201, 168, 117, 0.05) 50%,
-                    rgba(255, 255, 255, 0.98) 100%
+                    rgba(255, 255, 255, 0.25) 0%,
+                    rgba(255, 255, 255, 0.1) 100%
                 );
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 25px;
             padding: 3rem;
             overflow: hidden;
             position: relative;
             transition: var(--transition);
-            border: 2px solid rgba(201, 168, 117, 0.15);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             min-height: 380px;
             box-shadow: 
-                0 15px 40px rgba(0,0,0,0.08),
-                inset 0 1px 0 rgba(255,255,255,0.9);
+                0 20px 50px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
         }
 
         body.dark-mode .bento-item {
@@ -1008,18 +1006,15 @@
             position: relative;
             transform-style: preserve-3d;
             transition: var(--transition);
-            background: 
-                radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 60%),
-                linear-gradient(135deg, 
-                    rgba(255, 255, 255, 0.98) 0%,
-                    rgba(201, 168, 117, 0.08) 50%,
-                    rgba(255, 255, 255, 0.95) 100%
-                );
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
             border-radius: 30px;
             padding: 3rem;
             box-shadow: 
-                0 40px 100px rgba(0,0,0,0.2),
-                inset 0 1px 0 rgba(255,255,255,0.9);
+                0 30px 80px rgba(0,0,0,0.12),
+                inset 0 1px 0 rgba(255,255,255,0.3);
         }
 
         .product-3d-card:hover {
@@ -1322,23 +1317,133 @@
                 0 30px 80px rgba(0,0,0,0.2);
         }
 
-        /* ========== ELEGANT IMAGE STYLES ========== */
-        .elegant-bg {
+        /* ========== GLASSMORPHISM DESIGN SYSTEM ========== */
+        .glass-container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            box-shadow: 
+                0 8px 32px var(--glass-shadow),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .glass-card {
             background: 
-                radial-gradient(circle at top right, rgba(212, 175, 55, 0.1) 0%, transparent 60%),
-                radial-gradient(circle at bottom left, rgba(201, 168, 117, 0.1) 0%, transparent 60%),
                 linear-gradient(135deg, 
-                    rgba(255, 255, 255, 0.98) 0%,
-                    rgba(201, 168, 117, 0.06) 50%,
-                    rgba(255, 255, 255, 0.95) 100%
+                    rgba(255, 255, 255, 0.2) 0%,
+                    rgba(255, 255, 255, 0.1) 100%
+                );
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            box-shadow: 
+                0 15px 40px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .natural-bg {
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(139, 154, 107, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(168, 184, 138, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, 
+                    rgba(245, 241, 232, 0.95) 0%,
+                    rgba(255, 255, 255, 0.98) 50%,
+                    rgba(245, 241, 232, 0.95) 100%
                 );
         }
 
-        .premium-shadow {
+        .cactus-texture {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cactus-texture::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(139, 154, 107, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 70% 80%, rgba(168, 184, 138, 0.02) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        /* ========== SUSTAINABILITY GLASSMORPHISM ========== */
+        .sustainability-glass {
+            padding: 10rem 6%;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(139, 154, 107, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(168, 184, 138, 0.03) 0%, transparent 50%),
+                linear-gradient(135deg, 
+                    rgba(245, 241, 232, 0.8) 0%,
+                    rgba(255, 255, 255, 0.9) 50%,
+                    rgba(245, 241, 232, 0.8) 100%
+                );
+        }
+
+        .sustainability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .sustainability-card {
+            background: 
+                linear-gradient(135deg, 
+                    rgba(255, 255, 255, 0.3) 0%,
+                    rgba(255, 255, 255, 0.1) 100%
+                );
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 25px;
+            padding: 3rem;
+            text-align: center;
+            transition: var(--transition);
             box-shadow: 
-                0 25px 60px rgba(0,0,0,0.12),
-                inset 0 1px 0 rgba(255,255,255,0.8),
-                0 0 30px rgba(201, 168, 117, 0.15);
+                0 20px 50px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .sustainability-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 
+                0 30px 70px rgba(0, 0, 0, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        }
+
+        .sustainability-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .sustainability-stat {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .sustainability-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .sustainability-desc {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            opacity: 0.8;
         }
 
         /* ========== CONTACT ========== */
@@ -1893,6 +1998,44 @@
         </div>
     </section>
 
+    <!-- Sustainability Glassmorphism Section -->
+    <section class="sustainability-glass" id="nachhaltigkeit">
+        <div class="section-header">
+            <h2>Versprechen</h2>
+            <p>Kaktusleder ist die Zukunft nachhaltiger Mode</p>
+        </div>
+
+        <div class="sustainability-grid">
+            <div class="sustainability-card">
+                <div class="sustainability-icon">💧</div>
+                <div class="sustainability-stat">90%</div>
+                <div class="sustainability-title">Weniger Wasser</div>
+                <div class="sustainability-desc">Im Vergleich zu herkömmlichem Leder benötigt Kaktusleder 90% weniger Wasser in der Produktion.</div>
+            </div>
+
+            <div class="sustainability-card">
+                <div class="sustainability-icon">🌱</div>
+                <div class="sustainability-stat">100%</div>
+                <div class="sustainability-title">Biologisch abbaubar</div>
+                <div class="sustainability-desc">Unser Kaktusleder ist vollständig biologisch abbaubar und hinterlässt keine schädlichen Rückstände.</div>
+            </div>
+
+            <div class="sustainability-card">
+                <div class="sustainability-icon">🧪</div>
+                <div class="sustainability-stat">0%</div>
+                <div class="sustainability-title">Ohne Chemikalien</div>
+                <div class="sustainability-desc">Keine giftigen Chemikalien oder Chromsalze - nur natürliche, umweltfreundliche Verarbeitung.</div>
+            </div>
+
+            <div class="sustainability-card">
+                <div class="sustainability-icon">🌍</div>
+                <div class="sustainability-stat">CO2</div>
+                <div class="sustainability-title">CO2-neutral</div>
+                <div class="sustainability-desc">Unsere Produktion ist vollständig CO2-neutral und trägt zum Klimaschutz bei.</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Gallery -->
     <section class="gallery" id="galerie">
         <div class="section-header">
@@ -1901,55 +2044,55 @@
         </div>
 
         <div class="gallery-masonry">
-            <div class="gallery-item mega-elegant">
+            <div class="gallery-item glass-card cactus-texture">
                 <img src="./Public/jpg/Galeriebild-1.jpg" alt="Desert Skin Detailaufnahme">
                 <div class="gallery-overlay">
                     <h4>Natürliche Textur</h4>
                 </div>
             </div>
-            <div class="gallery-item mega-elegant">
+            <div class="gallery-item glass-card cactus-texture">
                 <img src="./Public/A+/Aplus-4.jpg" alt="Desert Skin Verarbeitung">
                 <div class="gallery-overlay">
                     <h4>Präzise Verarbeitung</h4>
                 </div>
             </div>
-            <div class="gallery-item mega-elegant">
+            <div class="gallery-item glass-card cactus-texture">
                 <img src="./Public/jpg/Galeriebild-2.jpg" alt="Desert Skin Material Close-up">
                 <div class="gallery-overlay">
                     <h4>Premium Material</h4>
                 </div>
             </div>
-            <div class="gallery-item mega-elegant">
+            <div class="gallery-item glass-card cactus-texture">
                 <img src="./Public/jpg/Galeriebild-3.jpg" alt="Desert Skin Lifestyle">
                 <div class="gallery-overlay">
                     <h4>Lifestyle</h4>
                 </div>
             </div>
-            <div class="gallery-item mega-elegant">
+            <div class="gallery-item glass-card cactus-texture">
                 <img src="./Public/jpg/Galeriebild-4.jpg" alt="Desert Skin Handwerk">
                 <div class="gallery-overlay">
                     <h4>Handwerkskunst</h4>
                 </div>
             </div>
-            <div class="gallery-item mega-elegant">
+            <div class="gallery-item glass-card cactus-texture">
                 <img src="./Public/jpg/Galeriebild-5.jpg" alt="Desert Skin Qualität">
                 <div class="gallery-overlay">
                     <h4>Qualitätskontrolle</h4>
                 </div>
             </div>
-            <div class="gallery-item mega-elegant">
+            <div class="gallery-item glass-card cactus-texture">
                 <img src="./Public/jpg/Galeriebild-6.jpg" alt="Desert Skin Detail">
                 <div class="gallery-overlay">
                     <h4>Liebe zum Detail</h4>
                 </div>
             </div>
-            <div class="gallery-item mega-elegant">
+            <div class="gallery-item glass-card cactus-texture">
                 <img src="./Public/jpg/Titelbild-1.jpg" alt="Desert Skin Collection">
                 <div class="gallery-overlay">
                     <h4>Unsere Kollektion</h4>
                 </div>
             </div>
-            <div class="gallery-item mega-elegant">
+            <div class="gallery-item glass-card cactus-texture">
                 <img src="./Public/jpg/Titelbild-2.jpg" alt="Desert Skin Eleganz">
                 <div class="gallery-overlay">
                     <h4>Eleganz</h4>
