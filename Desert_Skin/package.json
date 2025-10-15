@@ -1,0 +1,44 @@
+{
+  "name": "desert-skin",
+  "version": "1.0.0",
+  "description": "Premium Kaktusleder Geldbörsen - Nachhaltig, Vegan, Modern",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 8000 -o",
+    "deploy": "netlify deploy --prod",
+    "deploy:preview": "netlify deploy",
+    "dev": "npx browser-sync start --server --files '*.html, **/*.css, **/*.js'",
+    "lint": "echo 'No linting configured - pure HTML/CSS/JS project'",
+    "build": "echo 'No build step needed - static site'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/desert-skin.git"
+  },
+  "keywords": [
+    "kaktusleder",
+    "vegan",
+    "nachhaltig",
+    "geldbörse",
+    "e-commerce",
+    "sustainable",
+    "cactus-leather",
+    "wallet",
+    "eco-friendly"
+  ],
+  "author": "Desert Skin",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+

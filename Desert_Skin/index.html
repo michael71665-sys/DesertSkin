@@ -1,0 +1,2286 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Desert Skin - Premium Geldbörse aus nachhaltigem Kaktusleder. Veganes Leder, umweltfreundlich und stilvoll. Die perfekte nachhaltige Brieftasche.">
+    <meta name="keywords" content="Geldbörse, Kaktusleder, veganes Leder, nachhaltig, Brieftasche, Portemonnaie, Kartenhalter, umweltfreundlich, vegan, Premium Geldbeutel, Geldtasche, Portmonee">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Desert Skin - Premium Geldbörse aus Kaktusleder">
+    <meta property="og:description" content="Nachhaltige Premium-Geldbörse aus veganem Kaktusleder">
+    <meta property="og:image" content="./Public/A+/Aplus.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./Public/jpg/Logo.png">
+    <link rel="apple-touch-icon" href="./Public/jpg/Logo.png">
+    
+    <title>Desert Skin - Premium Geldbörse aus Kaktusleder | Nachhaltig & Vegan</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #C9A875;
+            --primary-dark: #A68958;
+            --secondary: #2C2820;
+            --accent: #E8DCC8;
+            --bg-light: #FAF8F5;
+            --bg-dark: #1A1612;
+            --text-dark: #2C2820;
+            --text-light: #F5F5F5;
+            --cactus-green: #627F5E;
+            --sand: #E8DCC8;
+            --gold: #D4AF37;
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            transition: var(--transition);
+            cursor: none;
+        }
+
+        body.dark-mode {
+            background: var(--bg-dark);
+            color: var(--text-light);
+        }
+
+        /* ========== CUSTOM CURSOR ========== */
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99999;
+            transition: all 0.15s ease-out;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+        }
+
+        .custom-cursor-follower {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(201, 168, 117, 0.4);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99998;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translate(-50%, -50%);
+        }
+
+        .custom-cursor.hover {
+            width: 60px;
+            height: 60px;
+            background: rgba(201, 168, 117, 0.2);
+            border: 2px solid var(--primary);
+        }
+
+        a, button, .gallery-item, .product-img-small {
+            cursor: none !important;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        /* ========== LOADING ========== */
+        .loading {
+            position: fixed;
+            inset: 0;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.6s, visibility 0.6s;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-content {
+            text-align: center;
+            color: white;
+        }
+
+        .loading-logo {
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255,255,255,0.2);
+            border-top-color: white;
+            border-radius: 50%;
+            margin: 0 auto;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========== SCROLL INDICATOR ========== */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--gold));
+            z-index: 9999;
+            transition: width 0.1s;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 2rem 6%;
+            background: rgba(250, 248, 245, 0.8);
+            backdrop-filter: blur(20px);
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(201, 168, 117, 0.1);
+        }
+
+        body.dark-mode header {
+            background: rgba(26, 22, 18, 0.8);
+            border-bottom: 1px solid rgba(201, 168, 117, 0.2);
+        }
+
+        header.scrolled {
+            padding: 1.2rem 6%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo:hover .logo-img {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(201, 168, 117, 0.5);
+        }
+
+        .logo-img {
+            height: 80px;
+            width: auto;
+            transition: var(--transition);
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
+            border-radius: 50%;
+            background: white;
+            padding: 12px;
+            box-shadow: 0 6px 20px rgba(201, 168, 117, 0.4);
+        }
+
+        .logo-text {
+            font-size: 2.2rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: -0.03em;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: var(--transition);
+            letter-spacing: 0.02em;
+        }
+
+        body.dark-mode .nav-links a {
+            color: var(--text-light);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: 1.5px solid var(--primary);
+            padding: 0.6rem 1.4rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .mobile-toggle {
+            color: var(--text-light);
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 6% 4rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--accent) 100%);
+        }
+
+        body.dark-mode .hero {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #2C2820 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            max-width: 1600px;
+            margin: 0 auto;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3.5rem, 7vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            color: var(--secondary);
+        }
+
+        body.dark-mode .hero-content h1 {
+            color: var(--text-light);
+        }
+
+        .hero-content .subtitle {
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            opacity: 0.85;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(201, 168, 117, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .btn-secondary {
+            color: var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .hero-image {
+            position: relative;
+            height: 700px;
+        }
+
+        .hero-product-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+            transition: var(--transition);
+        }
+
+        .hero-product-img:hover {
+            transform: scale(1.02) rotate(-1deg);
+        }
+
+        .hero-badge {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: var(--cactus-green);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero-bg-elements {
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .bg-pattern {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+        }
+
+        .bg-pattern-1 {
+            top: -300px;
+            right: -200px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .bg-pattern-2 {
+            bottom: -300px;
+            left: -200px;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            50% {
+                transform: translate(50px, -50px) rotate(5deg);
+            }
+        }
+
+        /* ========== PRODUCT SECTION ========== */
+        .product {
+            padding: 10rem 6%;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 6rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .product-showcase {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+
+        .product-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .product-img-main {
+            grid-column: 1 / -1;
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .product-img-main:hover {
+            transform: scale(1.02);
+        }
+
+        .product-img-small {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .product-img-small:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .product-info h3 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 2.2rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .product-description {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 3rem;
+        }
+
+        .product-features li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(201, 168, 117, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .product-features li::before {
+            content: '✓';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* ========== FEATURES GRID ========== */
+        .features {
+            padding: 8rem 6%;
+            background: var(--accent);
+        }
+
+        body.dark-mode .features {
+            background: rgba(44, 40, 32, 0.5);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 25px;
+            transition: var(--transition);
+            border: 1px solid rgba(201, 168, 117, 0.1);
+        }
+
+        body.dark-mode .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(201, 168, 117, 0.2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--gold));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .feature-icon svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .feature-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            opacity: 0.85;
+        }
+
+        /* ========== SUSTAINABILITY ========== */
+        .sustainability {
+            padding: 10rem 6%;
+            background: linear-gradient(135deg, var(--cactus-green), var(--primary-dark));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sustainability::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('./Public/jpg/Galeriebild-7.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            mix-blend-mode: overlay;
+        }
+
+        .sustainability-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .sustainability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 5rem;
+        }
+
+        .sustainability-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .sustainability-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-10px);
+        }
+
+        .sustainability-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .sustainability-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        /* ========== GALLERY ========== */
+        .gallery {
+            padding: 10rem 6%;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .gallery-masonry {
+            columns: 3;
+            column-gap: 2rem;
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h4 {
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        /* ========== BENTO GRID ========== */
+        .bento-section {
+            padding: 10rem 6%;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 280px);
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .bento-item {
+            background: white;
+            border-radius: 25px;
+            padding: 2.5rem;
+            overflow: hidden;
+            position: relative;
+            transition: var(--transition);
+            border: 2px solid rgba(201, 168, 117, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        body.dark-mode .bento-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(201, 168, 117, 0.2);
+        }
+
+        .bento-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.15);
+            border-color: var(--primary);
+        }
+
+        .bento-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .bento-item.wide {
+            grid-column: span 2;
+        }
+
+        .bento-item.tall {
+            grid-row: span 2;
+        }
+
+        .bento-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            inset: 0;
+            border-radius: 23px;
+        }
+
+        .bento-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .bento-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .bento-item p {
+            font-size: 1.05rem;
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        .bento-stat {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .bento-label {
+            font-size: 1.1rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+
+        /* ========== 3D PRODUCT SHOWCASE ========== */
+        .product-3d-section {
+            padding: 10rem 6%;
+            background: var(--accent);
+            perspective: 1000px;
+        }
+
+        body.dark-mode .product-3d-section {
+            background: rgba(44, 40, 32, 0.5);
+        }
+
+        .product-3d-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .product-3d-wrapper {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .product-3d-card {
+            width: 100%;
+            height: 600px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: var(--transition);
+        }
+
+        .product-3d-card:hover {
+            transform: rotateY(10deg) rotateX(-5deg) scale(1.05);
+        }
+
+        .product-3d-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 30px;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.2);
+        }
+
+        .product-3d-layer {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(201, 168, 117, 0.1), rgba(212, 175, 55, 0.1));
+            border-radius: 30px;
+            transform: translateZ(50px);
+            pointer-events: none;
+        }
+
+        /* ========== VIDEO SECTION ========== */
+        .video-section {
+            padding: 10rem 6%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            background: #000;
+        }
+
+        .video-wrapper iframe,
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 4rem;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .video-overlay h3 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .video-overlay p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+        }
+
+        /* ========== CHATBOT ========== */
+        .chatbot-trigger {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 10px 40px rgba(201, 168, 117, 0.4);
+            z-index: 9999;
+            transition: var(--transition);
+            border: none;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 10px 40px rgba(201, 168, 117, 0.4);
+            }
+            50% {
+                box-shadow: 0 10px 60px rgba(201, 168, 117, 0.7);
+            }
+        }
+
+        .chatbot-trigger:hover {
+            transform: scale(1.1);
+        }
+
+        .chatbot-trigger svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        .chatbot-window {
+            position: fixed;
+            bottom: 120px;
+            right: 30px;
+            width: 400px;
+            height: 600px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 80px rgba(0,0,0,0.2);
+            z-index: 9998;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        body.dark-mode .chatbot-window {
+            background: var(--secondary);
+        }
+
+        .chatbot-window.active {
+            display: flex;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, var(--primary), var(--gold));
+            padding: 1.5rem;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-header h4 {
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .chatbot-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .chat-message {
+            padding: 1rem 1.5rem;
+            border-radius: 20px;
+            max-width: 80%;
+            animation: messageSlide 0.3s ease-out;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-message.bot {
+            background: var(--accent);
+            align-self: flex-start;
+        }
+
+        body.dark-mode .chat-message.bot {
+            background: rgba(201, 168, 117, 0.2);
+        }
+
+        .chat-message.user {
+            background: var(--primary);
+            color: white;
+            align-self: flex-end;
+        }
+
+        .chatbot-input-area {
+            padding: 1.5rem;
+            border-top: 1px solid rgba(201, 168, 117, 0.2);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .chatbot-input-area input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid rgba(201, 168, 117, 0.2);
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        body.dark-mode .chatbot-input-area input {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-light);
+        }
+
+        .chatbot-input-area button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .chatbot-input-area button:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        /* ========== CONTACT ========== */
+        .contact {
+            padding: 10rem 6%;
+            background: var(--bg-light);
+        }
+
+        body.dark-mode .contact {
+            background: var(--bg-dark);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            opacity: 0.85;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            border: 2px solid rgba(201, 168, 117, 0.2);
+            border-radius: 15px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: var(--transition);
+            background: var(--bg-light);
+        }
+
+        body.dark-mode .form-group input,
+        body.dark-mode .form-group textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(201, 168, 117, 0.3);
+            color: var(--text-light);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(201, 168, 117, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 5rem 6% 3rem;
+        }
+
+        body.dark-mode footer {
+            background: #0a0806;
+        }
+
+        .footer-grid {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .footer-logo:hover {
+            transform: translateY(-3px);
+        }
+
+        .footer-logo:hover img {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(201, 168, 117, 0.6);
+        }
+
+        .footer-logo img {
+            height: 100px;
+            width: auto;
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
+            border-radius: 50%;
+            background: white;
+            padding: 15px;
+            box-shadow: 0 8px 25px rgba(201, 168, 117, 0.5);
+        }
+
+        .footer-about h3 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .footer-about p {
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(201, 168, 117, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--primary);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .social-link:hover svg {
+            fill: white;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .hero-grid,
+            .product-showcase,
+            .contact-container,
+            .product-3d-container {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .gallery-masonry {
+                columns: 2;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+            }
+
+            .bento-item.large,
+            .bento-item.wide,
+            .bento-item.tall {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .chatbot-window {
+                width: 90%;
+                right: 5%;
+                bottom: 100px;
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                cursor: auto;
+            }
+
+            .custom-cursor,
+            .custom-cursor-follower {
+                display: none;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 80%;
+                max-width: 400px;
+                background: var(--bg-light);
+                flex-direction: column;
+                padding: 6rem 2rem;
+                transition: var(--transition);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            }
+
+            body.dark-mode .nav-links {
+                background: var(--bg-dark);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .product-images {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-masonry {
+                columns: 1;
+            }
+
+            .features-grid,
+            .sustainability-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chatbot-trigger {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .chatbot-window {
+                width: 95%;
+                right: 2.5%;
+                bottom: 90px;
+                height: 450px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="custom-cursor-follower" id="cursorFollower"></div>
+
+    <!-- Loading -->
+    <div class="loading" id="loading">
+        <div class="loading-content">
+            <div class="loading-logo">DESERT SKIN</div>
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">
+                <img src="./Public/jpg/Logo.png" alt="Desert Skin Logo" class="logo-img">
+                <span class="logo-text">DESERT SKIN</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#produkt">Produkt</a></li>
+                <li><a href="#nachhaltigkeit">Nachhaltigkeit</a></li>
+                <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+                <li><button class="theme-toggle" id="themeToggle">Dark Mode</button></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle">≡</button>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-bg-elements">
+            <div class="bg-pattern bg-pattern-1"></div>
+            <div class="bg-pattern bg-pattern-2"></div>
+        </div>
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="subtitle">Premium Kaktusleder</div>
+                <h1>Desert Skin Geldbörse</h1>
+                <p>Die perfekte Symbiose aus Nachhaltigkeit, Luxus und zeitlosem Design. Unsere Premium-Geldbörse aus veganem Kaktusleder definiert bewussten Konsum neu.</p>
+                <div class="cta-buttons">
+                    <a href="#produkt" class="btn btn-primary">Jetzt entdecken</a>
+                    <a href="#nachhaltigkeit" class="btn btn-secondary">Mehr erfahren</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="./Public/A+/Aplus.jpg" alt="Desert Skin Premium Geldbörse aus Kaktusleder" class="hero-product-img">
+                <div class="hero-badge">100% Vegan</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product -->
+    <section class="product" id="produkt">
+        <div class="section-header">
+            <h2>Premium Kaktusleder Geldbörse</h2>
+            <p>Handgefertigt aus nachhaltigem Kaktusleder - Eine Revolution in der Welt veganer Accessoires</p>
+        </div>
+
+        <div class="product-showcase">
+            <div class="product-images">
+                <img src="./Public/A+/Aplus-1.jpg" alt="Desert Skin Geldbörse Hauptansicht" class="product-img-main">
+                <img src="./Public/A+/Aplus-2.jpg" alt="Desert Skin Geldbörse Detail" class="product-img-small">
+                <img src="./Public/A+/Aplus-3.jpg" alt="Desert Skin Geldbörse Material" class="product-img-small">
+            </div>
+
+            <div class="product-info">
+                <h3>Desert Skin Classic</h3>
+                <div class="product-price">€ 89,00</div>
+                <p class="product-description">
+                    Unsere Premium-Geldbörse vereint höchste Handwerkskunst mit innovativem Kaktusleder. Jedes Stück ist ein Unikat, das nicht nur durch sein zeitloses Design, sondern auch durch seine nachhaltige Herstellung überzeugt.
+                </p>
+                <ul class="product-features">
+                    <li>100% veganes Kaktusleder aus Mexiko</li>
+                    <li>Handgefertigt mit höchster Präzision</li>
+                    <li>8 Kartenfächer & 2 Geldfächer</li>
+                    <li>RFID-Schutz integriert</li>
+                    <li>Wasserfest & atmungsaktiv</li>
+                    <li>Biologisch teilweise abbaubar</li>
+                </ul>
+                <div class="cta-buttons">
+                    <a href="#kontakt" class="btn btn-primary">Jetzt bestellen</a>
+                    <a href="#galerie" class="btn btn-secondary">Mehr Bilder</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="section-header">
+            <h2>Warum Desert Skin?</h2>
+            <p>Eigenschaften, die überzeugen</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66 .95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
+                    </svg>
+                </div>
+                <h3>100% Vegan</h3>
+                <p>Komplett frei von tierischen Produkten. Kaktusleder bietet die gleiche Qualität wie traditionelles Leder - ohne Tierleid.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
+                <h3>Nachhaltig</h3>
+                <p>Minimaler Wasserverbrauch, keine Pestizide. Kakteen sind wahre Wunder der Natur und perfekt für nachhaltige Produktion.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                </div>
+                <h3>Premium Qualität</h3>
+                <p>Höchste Verarbeitung trifft auf innovatives Material. Langlebig, robust und mit authentischer Leder-Haptik.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+                    </svg>
+                </div>
+                <h3>RFID-Schutz</h3>
+                <p>Integrierter Schutz vor unbefugtem Auslesen Ihrer Karten. Sicherheit trifft auf Nachhaltigkeit.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                    </svg>
+                </div>
+                <h3>Zeitloses Design</h3>
+                <p>Minimalistisch, elegant und zeitlos. Ein Accessoire, das nie aus der Mode kommt.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                    </svg>
+                </div>
+                <h3>Umweltfreundlich</h3>
+                <p>Reduzierter CO₂-Fußabdruck und biologisch teilweise abbaubar. Gut für Sie, gut für den Planeten.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability -->
+    <section class="sustainability" id="nachhaltigkeit">
+        <div class="sustainability-content">
+            <div class="section-header">
+                <h2 style="color: white;">Nachhaltigkeit als Versprechen</h2>
+                <p style="color: white; opacity: 0.95;">Kaktusleder ist die Zukunft nachhaltiger Mode</p>
+            </div>
+
+            <div class="sustainability-grid">
+                <div class="sustainability-card">
+                    <h3>90% weniger Wasser</h3>
+                    <p>Im Vergleich zu traditioneller Lederproduktion benötigen Kakteen minimal Wasser und gedeihen natürlich in der mexikanischen Wüste.</p>
+                </div>
+
+                <div class="sustainability-card">
+                    <h3>Biologisch abbaubar</h3>
+                    <p>Teilweise biologisch abbaubar und frei von Kunststoffen wie PVC. Ein echter Beitrag zur Kreislaufwirtschaft.</p>
+                </div>
+
+                <div class="sustainability-card">
+                    <h3>Ohne Chemikalien</h3>
+                    <p>Produktion ohne toxische Chemikalien. Sicher für Mensch, Tier und Umwelt.</p>
+                </div>
+
+                <div class="sustainability-card">
+                    <h3>CO₂-neutral</h3>
+                    <p>Kakteen absorbieren CO₂ während des Wachstums. Der Produktionsprozess kompensiert Emissionen vollständig.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery" id="galerie">
+        <div class="section-header">
+            <h2>Einblicke in Handwerk & Material</h2>
+            <p>Jedes Detail zählt</p>
+        </div>
+
+        <div class="gallery-masonry">
+            <div class="gallery-item">
+                <img src="./Public/jpg/Galeriebild-1.jpg" alt="Desert Skin Detailaufnahme">
+                <div class="gallery-overlay">
+                    <h4>Natürliche Textur</h4>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./Public/A+/Aplus-4.jpg" alt="Desert Skin Verarbeitung">
+                <div class="gallery-overlay">
+                    <h4>Präzise Verarbeitung</h4>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./Public/jpg/Galeriebild-2.jpg" alt="Desert Skin Material Close-up">
+                <div class="gallery-overlay">
+                    <h4>Premium Material</h4>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./Public/jpg/Galeriebild-3.jpg" alt="Desert Skin Lifestyle">
+                <div class="gallery-overlay">
+                    <h4>Lifestyle</h4>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./Public/jpg/Galeriebild-4.jpg" alt="Desert Skin Handwerk">
+                <div class="gallery-overlay">
+                    <h4>Handwerkskunst</h4>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./Public/jpg/Galeriebild-5.jpg" alt="Desert Skin Qualität">
+                <div class="gallery-overlay">
+                    <h4>Qualitätskontrolle</h4>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./Public/jpg/Galeriebild-6.jpg" alt="Desert Skin Detail">
+                <div class="gallery-overlay">
+                    <h4>Liebe zum Detail</h4>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./Public/jpg/Titelbild-1.jpg" alt="Desert Skin Collection">
+                <div class="gallery-overlay">
+                    <h4>Unsere Kollektion</h4>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./Public/jpg/Titelbild-2.jpg" alt="Desert Skin Eleganz">
+                <div class="gallery-overlay">
+                    <h4>Eleganz</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento Grid Section -->
+    <section class="bento-section">
+        <div class="section-header">
+            <h2>Desert Skin in Zahlen</h2>
+            <p>Innovation trifft Nachhaltigkeit</p>
+        </div>
+
+        <div class="bento-grid">
+            <!-- Large Featured Item -->
+            <div class="bento-item large">
+                <img src="./Public/jpg/Galeriebild-7.jpg" alt="Desert Skin Premium Kaktusleder">
+                <div class="bento-content" style="position: absolute; bottom: 2.5rem; left: 2.5rem; color: white;">
+                    <h3 style="color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Premium Kaktusleder</h3>
+                    <p style="color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.5);">Nachhaltig gewonnen aus Mexiko</p>
+                </div>
+            </div>
+
+            <!-- Stat Items -->
+            <div class="bento-item">
+                <div class="bento-content">
+                    <div class="bento-stat">100%</div>
+                    <div class="bento-label">Vegan</div>
+                </div>
+            </div>
+
+            <div class="bento-item">
+                <div class="bento-content">
+                    <div class="bento-stat">90%</div>
+                    <div class="bento-label">Weniger Wasser</div>
+                </div>
+            </div>
+
+            <!-- Wide Item -->
+            <div class="bento-item wide">
+                <div class="bento-content">
+                    <h3>🌵 Kakteen brauchen kaum Wasser</h3>
+                    <p>Im Vergleich zur traditionellen Lederproduktion sparen wir bis zu 90% Wasser und verzichten komplett auf Pestizide.</p>
+                </div>
+            </div>
+
+            <div class="bento-item">
+                <div class="bento-content">
+                    <div class="bento-stat">8</div>
+                    <div class="bento-label">Kartenfächer</div>
+                </div>
+            </div>
+
+            <div class="bento-item">
+                <div class="bento-content">
+                    <div class="bento-stat">89€</div>
+                    <div class="bento-label">Fair Price</div>
+                </div>
+            </div>
+
+            <!-- Tall Item -->
+            <div class="bento-item tall">
+                <img src="./Public/A+/Aplus-4.jpg" alt="Desert Skin Handwerk">
+                <div class="bento-content" style="position: absolute; bottom: 2.5rem; left: 2.5rem; color: white;">
+                    <h3 style="color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Handgefertigt</h3>
+                </div>
+            </div>
+
+            <div class="bento-item">
+                <div class="bento-content">
+                    <h3>✅ RFID-Schutz</h3>
+                    <p>Integrierter Schutz für Ihre Karten</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Product Showcase -->
+    <section class="product-3d-section">
+        <div class="product-3d-container">
+            <div class="product-3d-wrapper">
+                <div class="product-3d-card" id="product3d">
+                    <img src="./Public/A+/Aplus-2.jpg" alt="Desert Skin 3D View">
+                    <div class="product-3d-layer"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="section-header" style="text-align: left; margin-bottom: 3rem;">
+                    <h2>Erlebe Desert Skin in 3D</h2>
+                    <p>Bewege deine Maus über das Produkt für einen interaktiven 3D-Effekt</p>
+                </div>
+                
+                <div class="product-description">
+                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Innovative Materialien</h3>
+                    <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 2rem;">
+                        Kaktusleder ist das Material der Zukunft. Gewonnen aus der Nopal-Kaktusart in Mexiko, bietet es die gleiche Haptik und Langlebigkeit wie traditionelles Leder - jedoch vollständig vegan und umweltfreundlich.
+                    </p>
+                    <ul class="product-features">
+                        <li>Biologisch teilweise abbaubar</li>
+                        <li>Ohne schädliche Chemikalien</li>
+                        <li>CO₂-neutral produziert</li>
+                        <li>Fair Trade zertifiziert</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="section-header" style="margin-bottom: 4rem;">
+            <h2>Die Story hinter Desert Skin</h2>
+            <p>Erfahre mehr über unsere nachhaltige Vision</p>
+        </div>
+
+        <div class="video-container">
+            <div class="video-wrapper">
+                <!-- Platzhalter für Video - in Produktion würde hier ein echtes Video eingebunden -->
+                <img src="./Public/jpg/Titelbild-3.jpg" alt="Desert Skin Video" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="video-overlay">
+                <h3>🎥 Von der Wüste zum Produkt</h3>
+                <p>Entdecke die Reise des Kaktusleders vom Anbau bis zur fertigen Geldbörse</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="kontakt">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Kontakt aufnehmen</h2>
+                <p>Haben Sie Fragen zu unserem Produkt oder möchten Sie mehr über Kaktusleder erfahren? Wir freuen uns auf Ihre Nachricht.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>E-Mail</strong><br>
+                            info@desertskin.de
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Telefon</strong><br>
+                            +49 (0) 123 456789
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Adresse</strong><br>
+                            Musterstraße 123, 12345 Stadt
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Ihr Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-Mail</label>
+                    <input type="email" id="email" name="email" required placeholder="ihre@email.de">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Nachricht</label>
+                    <textarea id="message" name="message" required placeholder="Ihre Nachricht an uns..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Nachricht senden</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Chatbot -->
+    <button class="chatbot-trigger" id="chatbotTrigger" aria-label="Chat öffnen">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+            <path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/>
+        </svg>
+    </button>
+
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <h4>🌵 Desert Skin Support</h4>
+            <button class="chatbot-close" id="chatbotClose">×</button>
+        </div>
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="chat-message bot">
+                Hallo! 👋 Ich bin dein Desert Skin Assistent. Wie kann ich dir bei der Auswahl deiner nachhaltigen Geldbörse helfen?
+            </div>
+            <div class="chat-message bot">
+                Du kannst mich fragen zu:
+                <br>• Kaktusleder & Nachhaltigkeit
+                <br>• Produktdetails & Features
+                <br>• Versand & Bestellung
+                <br>• Pflege & Garantie
+            </div>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chatInput" placeholder="Deine Frage...">
+            <button id="chatSend">Senden</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <img src="./Public/jpg/Logo.png" alt="Desert Skin Logo">
+                    <h3>DESERT SKIN</h3>
+                </div>
+                <p>Premium Geldbörsen aus nachhaltigem Kaktusleder. Vegan, umweltfreundlich und zeitlos elegant. Die Zukunft des bewussten Konsums.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Pinterest">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.04 21.54c.96.29 1.93.46 2.96.46a10 10 0 0 0 10-10A10 10 0 0 0 12 2 10 10 0 0 0 2 12c0 4.25 2.67 7.9 6.44 9.34-.09-.78-.18-2.07 0-2.96l1.15-4.94s-.29-.58-.29-1.5c0-1.38.86-2.41 1.84-2.41.86 0 1.26.63 1.26 1.44 0 .86-.57 2.09-.86 3.27-.17.98.52 1.84 1.52 1.84 1.78 0 3.16-1.9 3.16-4.58 0-2.4-1.72-4.04-4.19-4.04-2.82 0-4.48 2.1-4.48 4.31 0 .86.28 1.73.74 2.3.09.06.09.14.06.29l-.29 1.09c0 .17-.11.23-.28.11-1.28-.56-2.02-2.38-2.02-3.85 0-3.16 2.24-6.03 6.56-6.03 3.44 0 6.12 2.47 6.12 5.75 0 3.44-2.13 6.2-5.18 6.2-.97 0-1.92-.52-2.26-1.13l-.67 2.37c-.23.86-.86 2.01-1.29 2.7v-.03z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Produkt</h4>
+                <ul>
+                    <li><a href="#produkt">Geldbörse</a></li>
+                    <li><a href="#nachhaltigkeit">Nachhaltigkeit</a></li>
+                    <li><a href="#galerie">Galerie</a></li>
+                    <li><a href="#kontakt">Bestellung</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Unternehmen</h4>
+                <ul>
+                    <li><a href="#">Über uns</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                    <li><a href="#">Versand</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Rechtliches</h4>
+                <ul>
+                    <li><a href="#">Impressum</a></li>
+                    <li><a href="#">Datenschutz</a></li>
+                    <li><a href="#">AGB</a></li>
+                    <li><a href="#">Widerruf</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Desert Skin. Alle Rechte vorbehalten. | Handcrafted with care for a sustainable future.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Loading
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        const cursorFollower = document.getElementById('cursorFollower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX + 'px';
+                cursorFollower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+
+        // Cursor hover effect
+        const hoverElements = document.querySelectorAll('a, button, .gallery-item, .product-img-small, .bento-item');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // Scroll Progress
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+        });
+
+        // Header Scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Dark Mode
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.textContent = 'Light Mode';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeToggle.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeToggle.textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Mobile Menu
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileToggle.textContent = navLinks.classList.contains('active') ? '×' : '≡';
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileToggle.textContent = '≡';
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 3D Product Card Effect
+        const product3d = document.getElementById('product3d');
+        if (product3d) {
+            product3d.addEventListener('mousemove', (e) => {
+                const rect = product3d.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                product3d.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+            });
+            
+            product3d.addEventListener('mouseleave', () => {
+                product3d.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+            });
+        }
+
+        // Chatbot
+        const chatbotTrigger = document.getElementById('chatbotTrigger');
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        const chatbotClose = document.getElementById('chatbotClose');
+        const chatSend = document.getElementById('chatSend');
+        const chatInput = document.getElementById('chatInput');
+        const chatMessages = document.getElementById('chatMessages');
+
+        chatbotTrigger.addEventListener('click', () => {
+            chatbotWindow.classList.toggle('active');
+        });
+
+        chatbotClose.addEventListener('click', () => {
+            chatbotWindow.classList.remove('active');
+        });
+
+        // Chatbot responses
+        const botResponses = {
+            'kaktusleder': 'Kaktusleder wird aus der Nopal-Kaktusart in Mexiko gewonnen. Es ist 100% vegan, biologisch teilweise abbaubar und benötigt 90% weniger Wasser als traditionelles Leder! 🌵',
+            'nachhaltig': 'Unsere Geldbörsen sind zu 100% nachhaltig produziert. Wir verwenden keinerlei schädliche Chemikalien und der gesamte Produktionsprozess ist CO₂-neutral. ♻️',
+            'preis': 'Die Desert Skin Geldbörse kostet 89€. Das ist ein fairer Preis für ein handgefertigtes, nachhaltiges Premium-Produkt. 💰',
+            'versand': 'Wir versenden klimaneutral innerhalb von 2-3 Werktagen. Der Versand ist ab 50€ kostenlos. 📦',
+            'pflege': 'Kaktusleder ist sehr pflegeleicht! Einfach mit einem feuchten Tuch abwischen. Es ist wasserfest und atmungsaktiv. ✨',
+            'default': 'Das ist eine tolle Frage! Für detaillierte Informationen kannst du gerne unser Kontaktformular nutzen oder uns direkt anschreiben. 😊'
+        };
+
+        function addMessage(message, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${isUser ? 'user' : 'bot'}`;
+            messageDiv.textContent = message;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function getBotResponse(userMessage) {
+            const message = userMessage.toLowerCase();
+            
+            for (let key in botResponses) {
+                if (message.includes(key)) {
+                    return botResponses[key];
+                }
+            }
+            return botResponses['default'];
+        }
+
+        chatSend.addEventListener('click', () => {
+            const message = chatInput.value.trim();
+            if (message) {
+                addMessage(message, true);
+                chatInput.value = '';
+                
+                setTimeout(() => {
+                    const response = getBotResponse(message);
+                    addMessage(response, false);
+                }, 1000);
+            }
+        });
+
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                chatSend.click();
+            }
+        });
+
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Vielen Dank für Ihre Nachricht! Wir melden uns in Kürze bei Ihnen. 🌵');
+            e.target.reset();
+        });
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroContent = document.querySelector('.hero-content');
+            const heroImage = document.querySelector('.hero-image');
+            
+            if (heroContent && window.innerWidth > 768) {
+                heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+                if (heroImage) {
+                    heroImage.style.transform = `translateY(${scrolled * 0.2}px)`;
+                }
+            }
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .bento-item, .product-showcase, .sustainability-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
