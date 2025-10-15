@@ -414,20 +414,27 @@
         .hero-image {
             position: relative;
             height: 700px;
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(255,255,255,0.9) 100%);
+            border-radius: 30px;
+            padding: 2rem;
         }
 
         .hero-product-img {
             position: absolute;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            object-position: center;
             border-radius: 30px;
             box-shadow: 0 30px 80px rgba(0,0,0,0.15);
             transition: var(--transition);
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(255,255,255,0.9) 100%);
+            padding: 2rem;
         }
 
         .hero-product-img:hover {
             transform: scale(1.02) rotate(-1deg);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.25);
         }
 
         .hero-badge {
@@ -518,29 +525,39 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(255,255,255,0.9) 100%);
+            border-radius: 25px;
+            padding: 2rem;
         }
 
         .product-img-main {
             grid-column: 1 / -1;
             width: 100%;
             height: 500px;
-            object-fit: cover;
+            object-fit: contain;
+            object-position: center;
             border-radius: 25px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.1);
             transition: var(--transition);
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(255,255,255,0.95) 100%);
+            padding: 1.5rem;
         }
 
         .product-img-main:hover {
             transform: scale(1.02);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
         }
 
         .product-img-small {
             width: 100%;
             height: 250px;
-            object-fit: cover;
+            object-fit: contain;
+            object-position: center;
             border-radius: 20px;
             transition: var(--transition);
             cursor: pointer;
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(255,255,255,0.9) 100%);
+            padding: 1rem;
         }
 
         .product-img-small:hover {
@@ -741,12 +758,25 @@
             overflow: hidden;
             border-radius: 20px;
             cursor: pointer;
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(255,255,255,0.9) 100%);
+            padding: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
         }
 
         .gallery-item img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
             display: block;
             transition: var(--transition);
+            border-radius: 20px;
         }
 
         .gallery-item:hover img {
@@ -829,9 +859,15 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
             position: absolute;
             inset: 0;
             border-radius: 23px;
+            transition: var(--transition);
+        }
+
+        .bento-item:hover img {
+            transform: scale(1.05);
         }
 
         .bento-content {
@@ -908,9 +944,12 @@
         .product-3d-card img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            object-position: center;
             border-radius: 30px;
             box-shadow: 0 50px 100px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, var(--accent) 0%, rgba(255,255,255,0.95) 100%);
+            padding: 2rem;
         }
 
         .product-3d-layer {
@@ -1156,6 +1195,45 @@
         .chatbot-input-area button:hover {
             background: var(--primary-dark);
             transform: scale(1.05);
+        }
+
+        /* ========== ELEGANT IMAGE BACKGROUNDS ========== */
+        .elegant-bg {
+            background: linear-gradient(135deg, 
+                var(--accent) 0%, 
+                rgba(255,255,255,0.95) 25%, 
+                var(--sand) 50%, 
+                rgba(201, 168, 117, 0.1) 75%, 
+                var(--accent) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .elegant-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(201, 168, 117, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(98, 127, 94, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .premium-shadow {
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.1),
+                0 10px 20px rgba(201, 168, 117, 0.2),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        .luxury-glow {
+            box-shadow: 
+                0 0 30px rgba(201, 168, 117, 0.3),
+                0 20px 60px rgba(0,0,0,0.15);
         }
 
         /* ========== CONTACT ========== */
@@ -1557,7 +1635,7 @@
                     <a href="#nachhaltigkeit" class="btn btn-secondary">Mehr erfahren</a>
                 </div>
             </div>
-            <div class="hero-image">
+            <div class="hero-image elegant-bg premium-shadow">
                 <img src="./Public/A+/Aplus.jpg" alt="Desert Skin Premium Geldbörse aus Kaktusleder" class="hero-product-img">
                 <div class="hero-badge">100% Vegan</div>
             </div>
@@ -1572,7 +1650,7 @@
         </div>
 
         <div class="product-showcase">
-            <div class="product-images">
+            <div class="product-images elegant-bg premium-shadow">
                 <img src="./Public/A+/Aplus-1.jpg" alt="Desert Skin Geldbörse Hauptansicht" class="product-img-main">
                 <img src="./Public/A+/Aplus-2.jpg" alt="Desert Skin Geldbörse Detail" class="product-img-small">
                 <img src="./Public/A+/Aplus-3.jpg" alt="Desert Skin Geldbörse Material" class="product-img-small">
@@ -1841,7 +1919,7 @@
     <!-- 3D Product Showcase -->
     <section class="product-3d-section">
         <div class="product-3d-container">
-            <div class="product-3d-wrapper">
+            <div class="product-3d-wrapper elegant-bg premium-shadow" style="border-radius: 30px; padding: 2rem;">
                 <div class="product-3d-card" id="product3d">
                     <img src="./Public/A+/Aplus-2.jpg" alt="Desert Skin 3D View">
                     <div class="product-3d-layer"></div>
